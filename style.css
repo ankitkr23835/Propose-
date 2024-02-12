@@ -3,9 +3,10 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-
-  background: linear-gradient(rgb(0, 249, 236), rgb(71, 150, 229));
+  background: linear-gradient(rgb(255, 192, 203), rgb(255, 105, 180));
+  font-family: "Arial", sans-serif; /* Change the font style */
 }
+
 
 #noButton {
   position: absolute;
