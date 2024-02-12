@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="header">
-        <h1 class="header_text">Do you wanna go out with me?</h1>
-      </div>
-      <div class="gif-container">
-        <img
-          src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif"
-          alt="Cute animated illustration"
-        />
-      </div>
-      <div class="buttons">
-        <button class="btn yes-btn" id="yesButton" onclick="nextPage()">
-          Yes
-        </button>
-        <button class="btn no-btn" id="noButton" onclick="moveButton()">
-          No
-        </button>
-      </div>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do you wanna go out with me?</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="header_text">Do you wanna go out with me?</h1>
+    </header>
+    <main>
+      <section class="content">
+        <p class="text">Let's go on an adventure together!</p>
+        <div class="gif_container">
+          <img src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+          <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
+          <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">No</button>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>Created by <a href="https://www.instagram.com/developer_faizan//" target="_blank">@developer_faizan</a></p>
+    </footer>
+  </div>
 
-    <script>
-      function nextPage() {
-        window.location.href = "yes.html";
-      }
+  <script>
+    function nextPage() {
+      window.location.href = "yes.html";
+    }
 
-      function moveButton() {
-        var x =
-          Math.random() *
-          (window.innerWidth -
-            document.getElementById("noButton").offsetWidth);
-        var y =
-          Math.random() *
-          (window.innerHeight -
-            document.getElementById("noButton").offsetHeight);
-        document.getElementById("noButton").style.left = `${x}px`;
-        document.getElementById("noButton").style.top = `${y}px`;
-      }
-    </script>
-  </body>
+    function moveButton() {
+      var x = Math.random() * (window.innerWidth - document.getElementById("noButton").offsetWidth);
+      var y = Math.random() * (window.innerHeight - document.getElementById("noButton").offsetHeight);
+      document.getElementById("noButton").style.left = `${x}px`;
+      document.getElementById("noButton").style.top = `${y}px`;
+    }
+  </script>
+</body>
 </html>
