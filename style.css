@@ -1,65 +1,68 @@
 body {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #ff8080, #ffc0cb);
+  height: 100vh;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+  background: linear-gradient(rgb(0, 249, 236), rgb(71, 150, 229));
 }
 
 .container {
   text-align: center;
 }
 
-.header {
-  margin-bottom: 1em;
+header {
+  margin-bottom: 20px;
 }
 
 .header_text {
-  font-family: "Nunito", sans-serif;
-  font-size: 2.5em;
-  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffffff;
 }
 
-.gif-container {
-  margin-bottom: 2em;
+.text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 0;
+}
+
+.gif_container {
+  margin-bottom: 20px;
 }
 
 .buttons {
-  display: flex;
-  justify-content: center;
+  display: inline-flex;
 }
 
 .btn {
   background-color: #017cff;
   color: white;
-  font-weight: 600;
+  font-weight: bold;
+  font-size: 1.2rem;
   padding: 15px 32px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
+  margin: 0 10px;
   border: none;
-  border-radius: 12px;
+  border-radius: 25px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0 3px 3px black;
 }
 
 .btn:hover {
-  background-color: #ffffff;
-  color: #017cff;
+  background-color: #015be1;
 }
 
-.no-btn {
-  margin-left: 1em;
+footer {
+  margin-top: 20px;
 }
 
-@media (max-width: 500px) {
-  .header_text {
-    font-size: 2em;
-  }
+footer p {
+  color: white;
+}
 
-  .no-btn {
-    margin-left: 0.5em;
-  }
+footer p a {
+  color: white;
+  font-weight: bold;
 }
