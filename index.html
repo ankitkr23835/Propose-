@@ -1,49 +1,628 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div>
-        <h1 class="header_text">Will you be mine😸? please 🥺</h1>
-      </div>
-      <div class="gif_container">
-        <img
-          src="https://i.postimg.cc/pdNqPxx1/milk-and-mocha-cute.gif"
-          alt="Cute animated illustration"
-        />
-      </div>
-      <div class="buttons">
-        <button class="btn" id="yesButton" onclick="nextPage()">Yes</button>
-        <button
-          class="btn"
-          id="noButton"
-          onmouseover="moveButton()"
-          onclick="moveButton()"
-        >
-          No
-        </button>
 
-        <script>
-          function nextPage() {
-            window.location.href = "yes.html";
-          }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, AROHI!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Open Sans', sans-serif;
+            overflow-x: hidden;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            text-align: center;
+            background-color: #0B1215;
+            transition: background-color 1s ease;
+        }
 
-          function moveButton() {
-            var x =
-              Math.random() *
-              (window.innerWidth -
-                document.getElementById("noButton").offsetWidth);
-            var y =
-              Math.random() *
-              (window.innerHeight -
-                document.getElementById("noButton").offsetHeight);
-            document.getElementById("noButton").style.left = `${x}px`;
-            document.getElementById("noButton").style.top = `${y}px`;
-          }
-        </script>
-      </div>
+        /* Countdown Timer */
+        .countdown {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+            background-color: #0D1717;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        /* Celebration Message */
+        .celebration {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(11, 18, 21, 0.9);
+            z-index: 999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #F5F5F5;
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+            animation: glow 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #F5F5F5, 0 0 20px #F5F5F5, 0 0 30px #F5F5F5, 0 0 40px #F5F5F5, 0 0 50px #F5F5F5, 0 0 60px #F5F5F5, 0 0 70px #F5F5F5;
+            }
+
+            to {
+                text-shadow: 0 0 20px #FFFFFF, 0 0 30px #FFFFFF, 0 0 40px #FFFFFF, 0 0 50px #FFFFFF, 0 0 60px #FFFFFF, 0 0 70px #FFFFFF, 0 0 80px #FFFFFF;
+            }
+        }
+
+        /* Content Section */
+        .content {
+            display: none;
+            max-width: 100%;
+            opacity: 0;
+            transition: opacity 2s ease;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background-color: #171717;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-family: 'Pacifico', cursive;
+            z-index: 2;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            z-index: 2;
+            margin-top: 10px;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .hero button {
+            padding: 15px 30px;
+            font-size: 1rem;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            margin-top: 20px;
+            z-index: 2;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero button:hover {
+            background-color: #ff4b3a;
+        }
+
+        /* Message Section */
+        .message-section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #0C0C0C;
+            color: white;
+        }
+
+        .message-section h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+        }
+
+        .message-section p {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .message-section video {
+            max-width: 90%;
+            margin-top: 20px;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 50px 20px;
+            background-color: #101720;
+            text-align: center;
+            color: white;
+        }
+
+        .gallery h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+        }
+
+        .photos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .photo-item {
+            flex: 1 1 calc(33% - 40px);
+            max-width: calc(33% - 40px);
+            box-sizing: border-box;
+        }
+
+        .photo-item img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-item p {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #020D19;
+            color: white;
+        }
+
+        .timeline h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+        }
+
+        .events {
+            max-width: 800px;
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .event-item {
+            position: relative;
+            margin: 20px 0;
+            padding-left: 50px;
+        }
+
+        .event-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+        }
+
+        .event-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .event-item p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Music and Video Section */
+        .music-video {
+            padding: 50px 20px;
+            background-color: #011222;
+            text-align: center;
+            color: white;
+        }
+
+        .music-video h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+        }
+
+        .music-video audio {
+            margin-top: 20px;
+        }
+
+        .music-video p {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* Guestbook Section */
+        .guestbook {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #0B1215;
+            color: white;
+        }
+
+        .guestbook h2 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3rem;
+        }
+
+        .guestbook form {
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .guestbook textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        .guestbook button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: white;
+            background-color: #ff6f61;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #333;
+            color: white;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        footer div {
+            margin-top: 10px;
+        }
+
+        footer a {
+            color: #ff6f61;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        /* Greeting Boxes */
+        .greetings-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .greeting-box {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #0D1717;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, opacity 0.5s ease, background-color 1s ease;
+            opacity: 0;
+            transform: scale(0.5);
+            font-family: 'Pacifico', cursive;
+            font-size: 1.2rem;
+            text-align: center;
+            color: #ff6f61;
+            overflow: hidden;
+            position: relative;
+            border: 4px solid transparent;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        .greeting-box::before {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            width: calc(100% + 8px);
+            height: calc(100% + 8px);
+            background: linear-gradient(90deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF, #FF0000);
+            background-size: 200% 200%;
+            border-radius: 15px;
+            animation: rotate-border 5s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes rotate-border {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .greeting-box.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown">
+        <!-- Countdown Timer -->
     </div>
-  </body>
+
+    <!-- Celebration Message -->
+    <div class="celebration" id="celebration">
+        <div class="celebration-text" id="celebration-text"></div>
+    </div>
+
+    <!-- Greetings Boxes -->
+    <div class="greetings-container" id="greetings-container">
+        <div class="greeting-box" id="greeting1">Wishing you a fantastic day!</div>
+        <div class="greeting-box" id="greeting2">May all your dreams come true!</div>
+        <div class="greeting-box" id="greeting3">Here's to a year of joy and success!</div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content" id="content">
+        <!-- Hero Section -->
+        <div class="hero">
+            <div class="hero-overlay"></div>
+            <h1>Happy Birthday, AROHI!</h1>
+            <p>Wishing you a day filled with happiness and a year filled with joy. You deserve all the good things in life.</p>
+            <button onclick="scrollToContent()">Scroll Down to See More</button>
+        </div>
+
+        <!-- Greetings Integrated into Content -->
+        <div class="greetings-main" id="greetings-main">
+            <!-- The greeting boxes will be appended here -->
+        </div>
+
+        <!-- Message Section -->
+        <div class="message-section">
+            <h2>A Special Message</h2>
+            <p>
+                Dear AROHI, on this special day, I just wanted to let you know how much you mean to me. You are an amazing person with a heart of gold, and I am so lucky to have you in my life. Happy Birthday!
+            </p>
+            <video controls>
+                <source src="your-video-link.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="gallery">
+            <h2>Memorable Moments</h2>
+            <div class="photos">
+                <!-- Repeat this block for each photo -->
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/400x300/?happy" alt="Memory">
+                    <p>[Description or Caption]</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/400x300/?celebration" alt="Memory">
+                    <p>[Description or Caption]</p>
+                </div>
+                <div class="photo-item">
+                    <img src="https://source.unsplash.com/400x300/?party" alt="Memory">
+                    <p>[Description or Caption]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memory Timeline -->
+        <div class="timeline">
+            <h2>Our Journey</h2>
+            <div class="events">
+                <!-- Timeline Event -->
+                <div class="event-item">
+                    <h3>[Event Title]</h3>
+                    <p>[Description or Memory]</p>
+                </div>
+                <div class="event-item">
+                    <h3>[Event Title]</h3>
+                    <p>[Description or Memory]</p>
+                </div>
+                <div class="event-item">
+                    <h3>[Event Title]</h3>
+                    <p>[Description or Memory]</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Music and Video Section -->
+        <div class="music-video">
+            <h2>Special Playlist</h2>
+            <audio controls>
+                <source src="your-audio-link.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+            <p>Enjoy this playlist curated just for you!</p>
+        </div>
+
+        <!-- Guestbook -->
+        <div class="guestbook">
+            <h2>Leave a Message</h2>
+            <form>
+                <textarea placeholder="Write your message here..."></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with ❤️ for AROHI</p>
+            <div>
+                <!-- Social Media Links -->
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        function scrollToContent() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        }
+
+        // Countdown Timer
+        const countdownElement = document.getElementById('countdown');
+        const celebrationElement = document.getElementById('celebration');
+        const contentElement = document.getElementById('content');
+        const greetingsContainerElement = document.getElementById('greetings-container');
+        const greetingsMainElement = document.getElementById('greetings-main');
+        const targetDate = new Date('August 10, 2024 00:00:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `
+                ${days}d ${hours}h ${minutes}m ${seconds}s
+            `;
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.style.display = 'none';
+                startCelebration();
+            }
+        }
+
+        const countdownInterval = setInterval(updateCountdown, 1000);
+
+        // Celebration Effect
+        function startCelebration() {
+            celebrationElement.style.display = 'flex';
+            typeEffect(document.getElementById('celebration-text'), 10000, 'Happy Birthday AROHI!');
+            setTimeout(() => {
+                celebrationElement.style.display = 'none';
+                showGreetings();
+            }, 10000);
+        }
+
+        // Show Greeting Messages
+        function showGreetings() {
+            const greetingBoxes = document.querySelectorAll('.greeting-box');
+            greetingsContainerElement.style.display = 'flex';
+            let delay = 0;
+
+            greetingBoxes.forEach((box, index) => {
+                setTimeout(() => {
+                    box.classList.add('visible');
+                    if (index === greetingBoxes.length - 1) {
+                        setTimeout(() => {
+                            integrateGreetingsIntoContent();
+                        }, 3000);
+                    }
+                }, delay);
+                delay += 1500;
+            });
+        }
+
+        // Integrate Greeting Boxes into Main Content
+        function integrateGreetingsIntoContent() {
+            greetingsContainerElement.style.display = 'none';
+            greetingBoxes = document.querySelectorAll('.greeting-box');
+
+            greetingBoxes.forEach(box => {
+                box.style.opacity = '1';
+                box.style.transform = 'scale(1)';
+                box.style.transition = 'transform 1s ease, opacity 1s ease';
+                greetingsMainElement.appendChild(box);
+            });
+
+            setTimeout(() => {
+                showContent();
+            }, 3000);
+        }
+
+        // Show Main Content
+        function showContent() {
+            contentElement.style.display = 'block';
+            contentElement.style.opacity = '1';
+        }
+
+        // Type Effect for Text
+        function typeEffect(element, duration, text) {
+            const letters = text.split('');
+            let index = 0;
+            const interval = duration / letters.length;
+
+            const typeInterval = setInterval(() => {
+                element.textContent += letters[index];
+                index++;
+
+                if (index === letters.length) {
+                    clearInterval(typeInterval);
+                }
+            }, interval);
+        }
+
+        // Change Background Color Periodically
+        changeBackgroundColor();
+
+        function changeBackgroundColor() {
+            const colors = [
+                '#0B1215',
+                '#0D1717',
+                '#171717',
+                '#0C0C0C',
+                '#101720',
+                '#020D19',
+                '#011222'
+            ];
+            let index = 0;
+            setInterval(() => {
+                document.body.style.backgroundColor = colors[index];
+                index = (index + 1) % colors.length;
+            }, 2000);
+        }
+    </script>
+</body>
+
 </html>
